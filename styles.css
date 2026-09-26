@@ -1,0 +1,308 @@
+/* ===== Tokens ===== */
+:root {
+  --ink: #0f1a15;      /* botanical green-black ground */
+  --surface: #16241e;  /* raised panels on the bench */
+  --text: #efe9db;     /* warm chalk */
+  --accent: #e9a13b;   /* amber — worked metal */
+  --sage: #9dba9b;     /* quiet secondary */
+  --line: #2a3a30;     /* borders as structure */
+  --muted: #b6c3b4;
+  --radius: 4px;       /* small; structure carries the design */
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Archivo", system-ui, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  background: var(--ink);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+
+/* ===== Focus ===== */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--accent);
+  color: var(--ink);
+  padding: 0.6rem 1rem;
+  z-index: 20;
+}
+.skip:focus { left: 0; }
+
+/* ===== Type scale ===== */
+.section-title {
+  font-family: "Instrument Serif", serif;
+  font-weight: 400;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  margin-bottom: 2.5rem;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 2px;
+  background: var(--line);
+  margin-top: 0.9rem;
+}
+
+/* ===== Navigation ===== */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem;
+  background: rgba(15, 26, 21, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav__brand {
+  font-family: "Instrument Serif", serif;
+  font-size: 1.5rem;
+}
+
+.nav__dot { color: var(--accent); }
+
+.nav__links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav__links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.98rem;
+  padding: 0.25rem 0;
+}
+
+.nav__links a:hover { color: var(--text); }
+
+.nav__toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.nav__toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  margin: 5px 0;
+}
+
+/* ===== Hero ===== */
+.hero {
+  min-height: 74vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 6rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero__line {
+  font-family: "Instrument Serif", serif;
+  font-size: clamp(2.6rem, 7vw, 5rem);
+  line-height: 1.02;
+  font-weight: 400;
+  animation: hero-in 0.9s ease both;
+}
+
+.hero__sub {
+  color: var(--muted);
+  max-width: 44ch;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  animation: hero-in 0.9s ease 0.12s both;
+}
+
+.hero__links {
+  display: flex;
+  gap: 2rem;
+  animation: hero-in 0.9s ease 0.24s both;
+}
+
+.link {
+  color: var(--sage);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.15rem;
+  font-weight: 500;
+}
+
+.link:hover { color: var(--accent); border-color: var(--accent); }
+
+@keyframes hero-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ===== Sections ===== */
+.work, .about, .capabilities, .contact {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+/* ===== Work — numbered catalogue ===== */
+.catalogue {
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  gap: 1.25rem;
+  padding: 1.75rem 0.25rem;
+  border-bottom: 1px solid var(--line);
+  align-items: baseline;
+}
+
+.item__no {
+  font-family: "Instrument Serif", serif;
+  font-size: 1.3rem;
+  color: var(--accent);
+}
+
+.item h3 {
+  font-family: "Instrument Serif", serif;
+  font-weight: 400;
+  font-size: 2rem;
+  margin-bottom: 0.4rem;
+}
+
+.item p { color: var(--muted); max-width: 52ch; }
+
+/* ===== About ===== */
+.about p {
+  color: var(--muted);
+  max-width: 60ch;
+  margin-bottom: 1.2rem;
+  line-height: 1.75;
+}
+
+/* ===== Capabilities — bordered rows ===== */
+.rows {
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: minmax(180px, 260px) 1fr;
+  gap: 2rem;
+  padding: 1.3rem 0.25rem;
+  border-bottom: 1px solid var(--line);
+  align-items: baseline;
+}
+
+.row__name { font-weight: 600; color: var(--text); }
+.row__desc { color: var(--muted); }
+
+/* ===== Contact ===== */
+.contact__lead { color: var(--muted); margin-bottom: 2rem; }
+
+.form {
+  display: grid;
+  gap: 1rem;
+  max-width: 480px;
+}
+
+.form input,
+.form textarea {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--text);
+  padding: 0.85rem 1rem;
+  font: inherit;
+}
+
+.form input::placeholder,
+.form textarea::placeholder { color: var(--muted); }
+
+.form input:focus,
+.form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.form__status { color: var(--accent); min-height: 1.4rem; }
+
+.btn {
+  justify-self: start;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  font: 600 1rem "Archivo", sans-serif;
+  padding: 0.8rem 1.8rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.btn:hover { background: var(--accent); color: var(--ink); }
+
+/* ===== Footer ===== */
+.footer {
+  text-align: center;
+  color: var(--muted);
+  padding: 2.5rem 1rem 3rem;
+  border-top: 1px solid var(--line);
+}
+
+/* ===== Motion: single moment, then quiet ===== */
+@media (prefers-reduced-motion: reduce) {
+  .hero__line, .hero__sub, .hero__links { animation: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 640px) {
+  .nav__toggle { display: block; }
+
+  .nav__links {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--ink);
+    border-bottom: 1px solid var(--line);
+    padding: 0.5rem 2rem 1.25rem;
+  }
+  .nav__links a { padding: 0.75rem 0; }
+
+  .hero { padding: 4rem 1.5rem; min-height: 66vh; }
+
+  .work, .about, .capabilities, .contact { padding: 3.5rem 1.5rem; }
+
+  .row { grid-template-columns: 1fr; gap: 0.35rem; }
+  .item { grid-template-columns: 2.5rem 1fr; }
+}

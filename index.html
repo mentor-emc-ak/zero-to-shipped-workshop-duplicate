@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Guru — UX designer who builds real AI products, useful to everyone." />
+  <title>Guru — useful things, built</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip" href="#work">Skip to work</a>
+
+  <header class="nav">
+    <span class="nav__brand">Guru<span class="nav__dot">.</span></span>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+    <nav class="nav__links" id="navLinks">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="hero__line">I make real things with AI.</p>
+      <p class="hero__sub">
+        Useful tools for everyone — not demos, not hype, not a dashboard with one
+        stat in the corner. Software people can actually pick up and use.
+      </p>
+      <div class="hero__links">
+        <a class="link" href="#work">See the work</a>
+        <a class="link" href="#contact">Say hello</a>
+      </div>
+    </section>
+
+    <section class="work" id="work">
+      <h2 class="section-title">The work</h2>
+      <ol class="catalogue">
+        <li class="item">
+          <span class="item__no">01</span>
+          <div class="item__body">
+            <h3>Clerk</h3>
+            <p>Clerk is a written record of every tool I've built.</p>
+          </div>
+        </li>
+        <li class="item">
+          <span class="item__no">02</span>
+          <div class="item__body">
+            <h3>Delivery</h3>
+            <p>Products taken from first sketch to a working build you can hold.</p>
+          </div>
+        </li>
+        <li class="item">
+          <span class="item__no">03</span>
+          <div class="item__body">
+            <h3>Notes</h3>
+            <p>Why the design, how it failed, and what the fix taught the next one.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="about" id="about">
+      <h2 class="section-title">About</h2>
+      <p>
+        I'm Guru, a UX designer. I believe an AI product earns its place the moment
+        someone who didn't build it gets real value from it — saving time, gaining a
+        skill, or solving something they couldn't before.
+      </p>
+      <p>
+        So I build the whole thing: the design, the reasoning, and the real working
+        app. I keep a written record of each one so the next is better.
+      </p>
+    </section>
+
+    <section class="capabilities" id="capabilities">
+      <h2 class="section-title">Capabilities</h2>
+      <ul class="rows">
+        <li class="row">
+          <span class="row__name">AI product design</span>
+          <span class="row__desc">Turning a model into something a person can use.</span>
+        </li>
+        <li class="row">
+          <span class="row__name">UX research and testing</span>
+          <span class="row__desc">Learning from real people, not from guesses.</span>
+        </li>
+        <li class="row">
+          <span class="row__name">Prototyping</span>
+          <span class="row__desc">Fast, clickable builds to test the hard idea early.</span>
+        </li>
+        <li class="row">
+          <span class="row__name">Full build</span>
+          <span class="row__desc">From the first sketch to an app that runs on its own.</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2 class="section-title">Say hello</h2>
+      <p class="contact__lead">Have an idea for a useful AI product? Tell me about it.</p>
+      <form class="form" id="contactForm">
+        <input type="text" id="name" name="name" placeholder="Name" required />
+        <input type="email" id="email" name="email" placeholder="Email" required />
+        <textarea id="message" name="message" rows="4" placeholder="What are you building?" required></textarea>
+        <p class="form__status" id="contactStatus" role="status"></p>
+        <button type="submit" class="btn">Send message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Guru.</p>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
